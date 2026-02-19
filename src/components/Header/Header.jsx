@@ -5,8 +5,10 @@ import Navigation from './Navigation/Navigation.jsx'
 export default function Header() {
   return (
     <div className={css.header}>
-      <Logo />
-      <Navigation />
+      <div className={css.container}>
+        <Logo />
+        <Navigation />
+      </div>
     </div>
   );
 }

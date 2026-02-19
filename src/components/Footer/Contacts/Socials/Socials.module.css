@@ -1,0 +1,17 @@
+.contactList {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+.socialsList {
+  display: flex;
+  gap: 20px;
+}
+.socialsIcon {
+  transition: 500ms cubic-bezier(0.075, 0.82, 0.165, 1);
+}
+.socialsIcon:hover {
+  scale: 1.2;
+  --color1: #3b5998; /* колір фону після наведення */
+  --color2: #fff; /* (необов'язково) колір літери */
+}
