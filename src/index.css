@@ -14,12 +14,18 @@
   -moz-osx-font-smoothing: grayscale; */
 }
 
+html, body {
+  height: 100%;
+}
+
 body {
   margin: 0;
   display: flex;
+  flex-direction: column;
   /* place-items: center; */
   min-width: 320px;
-  /* min-height: 100vh; */
+  min-height: 100vh;
+  font-family: "Geologica", sans-serif;
 }
 /* a {
   font-weight: 500;

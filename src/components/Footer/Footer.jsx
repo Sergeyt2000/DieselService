@@ -6,7 +6,7 @@ import Contacts from "./Contacts/Contacts.jsx";
 export default function Footer() {
   return (
     <footer className={css.footer}>
-      <div className={css.content}>
+      <div className={css.footerContent}>
         <Logo />
         <Services />
         <Contacts />
