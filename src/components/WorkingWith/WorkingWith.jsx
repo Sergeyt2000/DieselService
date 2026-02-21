@@ -1,4 +1,8 @@
 import css from "./WorkingWith.module.css";
+import boschLogo from "../../assets/images/WorkingWith/bosch-logo.png";
+import continentalLogo from "../../assets/images/WorkingWith/continental-logo.png";
+import delphiLogo from "../../assets/images/WorkingWith/delphi-logo.png";
+import densoLogo from "../../assets/images/WorkingWith/denso-logo.png";
 
 export default function WorkingWith() {
   return (
@@ -8,28 +12,28 @@ export default function WorkingWith() {
         <ul className={css.list}>
           <li className={css.item}>
             <img
-              src="/src/assets/images/WorkingWith/bosch-logo.png"
+              src={boschLogo}
               alt="Bosch logo"
               className={css.icon}
             />
           </li>
           <li className={css.item}>
             <img
-              src="/src/assets/images/WorkingWith/continental-logo.png"
+              src={continentalLogo}
               alt="Continental logo"
               className={css.icon}
             />
           </li>
           <li className={css.item}>
             <img
-              src="/src/assets/images/WorkingWith/delphi-logo.png"
+              src={delphiLogo}
               alt="Delphi logo"
               className={css.icon}
             />
           </li>
           <li className={css.item}>
             <img
-              src="/src/assets/images/WorkingWith/denso-logo.png"
+              src={densoLogo}
               alt="Denso logo"
               className={css.icon}
             />
