@@ -2,10 +2,11 @@
     flex-shrink: 0;
 }
 .footerContent {
-    width: 1440px;
+    width: 1200px;
     display: flex;
-    /* align-items: center; */
+    align-items: start;
     justify-content: space-between;
-    padding: 20px;
+    /* padding: 20px; */
     margin: 0 auto;
+    padding: 20px 0;
 }
