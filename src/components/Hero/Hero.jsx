@@ -6,7 +6,7 @@ export default function Hero() {
         <div className={css.content}>
           {/* <h1>Ласкаво просимо до Diesel Service!</h1> */}
           {/* <h1>Ласкаво просимо до Diesel Injector Service!</h1> */}
-          <img width={1000} src="/public/img/dis-logo.png" alt="Logo"></img>
+          <img width={1000} src="/img/dis-logo.png" alt="Logo"></img>
           {/* <p>
             Ваш надійний партнер у світі дизельних двигунів та обслуговування.
           </p> */}
