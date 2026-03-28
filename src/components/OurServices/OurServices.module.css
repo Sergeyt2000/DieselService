@@ -1,20 +1,36 @@
 .ourServices {
-    padding-top: 40px;
-    padding-bottom: 40px;
+  padding: 40px 20px;
+}
+@media (min-width: 768px) {
+  .ourServices {
+    padding: 40px 0;
+  }
 }
 .container {
   display: flex;
   /* justify-content: center; */
   flex-direction: column;
   gap: 20px;
-  width: 1200px;
+  max-width: 1200px;
   margin: 0 auto;
 }
+
 .title {
   text-align: center;
 }
+@media (min-width: 768px) {
+  .title {
+    font-size: 36px;
+  }
+}
 .servicesList {
   display: flex;
-  justify-content: space-between;
+  flex-direction: column;
   gap: 20px;
+}
+@media (min-width: 768px) {
+  .servicesList {
+    flex-direction: row;
+    justify-content: space-between;
+  }
 }

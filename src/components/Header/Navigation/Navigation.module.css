@@ -1,8 +1,36 @@
 .navigation {
-    background-color: white;
+    background-color: transparent;
 }
 .list {
     display: flex;
     gap: 1.5em;
     color: black;
+}
+@media (max-width: 767px) {
+    .navigation {
+        position: fixed;
+        top: 80px;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        /* background-color: #ffffff; */
+        background-color: rgba(255, 255, 255, 0.7);
+        z-index: 999;
+        padding: 30px 20px;
+    }
+  .list {
+    display: flex;
+    gap: 1.5em;
+    flex-direction: column;
+  }
+}
+/* Десктопна навігація */
+.desktopNav {
+  display: none;
+}
+
+@media (min-width: 768px) {
+  .desktopNav {
+    display: block;
+  }
 }

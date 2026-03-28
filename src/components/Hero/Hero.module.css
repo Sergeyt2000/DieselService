@@ -1,17 +1,52 @@
 .hero {
-    height: 500px;
-    background-image: url(/public/img/hero.jpg);
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    /* background-size: 749px 508px; */
+  /* max-width: 767px; */
+  height: 500px;
+  width: 100%;
+  background-image: url(/img/hero.jpg);
+  /* background-image:
+    linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(/img/hero.jpg); */
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  /* background-size: 749px 508px; */
+}
+@media (min-width: 768px) {
+  .hero {
+    min-width: 768px;
+  }
 }
 .content {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    height: 100%;
-    color: #fff;
-    text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  color: #fff;
+  text-align: center;
+  padding: 0 20px;
+}
+.logo {
+  width: 100%; /* Гумова ширина для мобільних */
+  max-width: 300px; /* Обмежуємо розмір лого на смартфонах */
+  height: auto;
+}
+@media (min-width: 768px) {
+  .hero {
+    height: 600px; /* Можна трохи збільшити висоту на великих екранах */
+  }
+
+  .logo {
+    max-width: 600px; /* Збільшуємо лого для планшетів */
+  }
+}
+
+/* Точка перелому для десктопів (від 1024px або 1200px) */
+@media (min-width: 1024px) {
+  .hero {
+    height: 700px;
+  }
+
+  .logo {
+    max-width: 800px; /* Максимальний розмір лого на ПК */
+  }
 }

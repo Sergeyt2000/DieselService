@@ -1,17 +1,31 @@
 import css from "./Navigation.module.css";
 
-export default function Navigation() {
+export default function Navigation({ isMobile = false, onLinkClick }) {
+  const handleClick = (e) => {
+    if (onLinkClick) {
+      onLinkClick(); // закриваємо меню після кліку
+    }
+  };
+
   return (
-    <nav className={css.navigation}>
+    <nav
+      className={`${css.navigation} ${isMobile ? css.mobileNav : css.desktopNav}`}
+    >
       <ul className={css.list}>
         <li className={css.item}>
-          <a href="/">Головна</a>
+          <a href="/" onClick={handleClick}>
+            Головна
+          </a>
         </li>
         <li className={css.item}>
-          <a href="/about">Про нас</a>
+          <a href="/about" onClick={handleClick}>
+            Про нас
+          </a>
         </li>
         <li className={css.item}>
-          <a href="/contacts">Контакти</a>
+          <a href="/contacts" onClick={handleClick}>
+            Контакти
+          </a>
         </li>
       </ul>
     </nav>
