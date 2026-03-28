@@ -1,26 +1,11 @@
+import Contacts from "../../components/Contacts/Contacts";
 import css from "./ContactsPage.module.css";
 
 export default function ContactsPage() {
     return (
       <div className={css.contactsPage}>
         <div className={css.content}>
-          <div>
-            <div>
-              <h1>Контакти</h1>
-              <p>Телефон: +380685225547</p>
-              <p>Телефон: +380931225542</p>
-              <p>Email: diesel.van2025@gmail.com</p>
-              <p>Адреса: вул. Городня, 13, Київ, Україна</p>
-            </div>
-            <div>
-              <h2>Графік роботи</h2>
-              <p>Понеділок - П'ятниця: 9:00 - 18:00</p>
-              <p>Субота: 10:00 - 16:00</p>
-              <p>Неділя: Вихідний</p>
-            </div>
-            <p>Працюємо з Новою Поштою</p>
-            <p>Приймаємо в ремонт сняті вузли з будь-якого міста України</p>
-          </div>
+          <Contacts />
           <div className={css.map}>
             <iframe
               title="Diesel Service Location"

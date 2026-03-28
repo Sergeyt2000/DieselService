@@ -1,4 +1,4 @@
-import css from "./Contacts.module.css";
+import css from "./ContactsFooter.module.css";
 import Socials from "./Socials/Socials.jsx";
 
 export default function Contacts() {

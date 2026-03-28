@@ -1,7 +1,7 @@
 import css from "./Footer.module.css";
 import Logo from "../Header/Logo/Logo.jsx";
 import Services from "./Services/Services.jsx";
-import Contacts from "./Contacts/Contacts.jsx";
+import ContactsFooter from "./ContactsFooter/ContactsFooter.jsx";
 
 export default function Footer() {
   return (
@@ -9,7 +9,7 @@ export default function Footer() {
       <div className={css.footerContent}>
         <Logo />
         <Services />
-        <Contacts />
+        <ContactsFooter />
       </div>
     </footer>
   );
