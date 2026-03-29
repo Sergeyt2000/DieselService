@@ -1,8 +1,14 @@
 .contacts {
   display: flex;
-  /* flex-direction: column; */
+  flex-direction: column;
   /* justify-content: space-between; */
-  gap: 200px;
+  gap: 20px;
+}
+@media (min-width: 768px) {
+  .contacts {
+    flex-direction: row;
+    gap: 200px;
+  }
 }
 .contactItem {
   display: flex;

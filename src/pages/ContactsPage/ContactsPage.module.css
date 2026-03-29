@@ -8,3 +8,32 @@
   margin: 0 auto;
   padding: 20px;
 }
+/* .map_dt {
+  display: none;
+}
+@media (min-width: 768px) {
+  .map_mobile {
+    display: none;
+  }
+  .map_dt {
+    display: block;
+  }
+} */
+ .map {
+  position: relative;
+  padding-bottom: 75%;     /* 450 / 600 = 0.75 → 75% */
+  height: 0;
+  overflow: hidden;
+  width: 100%;
+  max-width: 100%;
+  border-radius: 8px;      /* опціонально — для краси */
+}
+
+.map iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100% !important;
+  height: 100% !important;
+  border: 0;
+}

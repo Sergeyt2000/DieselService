@@ -7,7 +7,9 @@ export default function Footer() {
   return (
     <footer className={css.footer}>
       <div className={css.footerContent}>
-        <Logo />
+        <div className={css.logo}>
+          <Logo />
+        </div>
         <Services />
         <ContactsFooter />
       </div>
