@@ -9,6 +9,8 @@
   background-position: center;
   background-repeat: no-repeat;
   /* background-size: 749px 508px; */
+  position: relative;
+  overflow: hidden;
 }
 @media (min-width: 768px) {
   .hero {
@@ -28,8 +30,50 @@
 .logo {
   width: 100%; /* Гумова ширина для мобільних */
   max-width: 300px; /* Обмежуємо розмір лого на смартфонах */
-  height: auto;
+  height: auto;  
 }
+/* === АНІМАЦІЯ ЛОГО === */
+.logo {
+  opacity: 0;                    
+  transform: scale(0.7) translateY(40px); 
+  animation: logoAppear 1.2s forwards ease-out;
+  animation-delay: 300ms;
+}
+/* === АНІМАЦІЯ ЛОГО 2=== */
+/* .logo {
+  opacity: 0;
+  transform: translateY(-60px);
+  animation: fadeDown 1s forwards ease-out;
+  animation-delay: 200ms;
+} */
+ /* === АНІМАЦІЯ ЛОГО 3=== */
+ /* .logo {
+  opacity: 0;
+  transform: scale(0.3);
+  animation: logoBounce 1.4s forwards cubic-bezier(0.68, -0.55, 0.27, 1.55);
+} */
+
+/* Сама анімація */
+@keyframes logoAppear {
+  to {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+@keyframes fadeDown {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+@keyframes logoBounce {
+  0%   { opacity: 0; transform: scale(0.3); }
+  60%  { transform: scale(1.15); }
+  100% { opacity: 1; transform: scale(1); }
+}
+
+
+
 @media (min-width: 768px) {
   .hero {
     height: 600px; /* Можна трохи збільшити висоту на великих екранах */
