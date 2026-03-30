@@ -1,5 +1,5 @@
 import { useState } from "react";
-// import { useEffect } from "react";
+import { useEffect } from "react";
 import css from "./Header.module.css";
 
 import Logo from "./Logo/Logo.jsx";
@@ -11,17 +11,17 @@ export default function Header() {
 
   const closeMenu = () => setMenuOpen(false);
 
-  // useEffect(() => {
-  //   if (menuOpen) {
-  //     document.body.style.overflow = "hidden";
-  //   } else {
-  //     document.body.style.overflow = "unset";
-  //   }
+  useEffect(() => {
+    if (menuOpen) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "unset";
+    }
 
-  //   return () => {
-  //     document.body.style.overflow = "unset";
-  //   };
-  // }, [menuOpen]);
+    return () => {
+      document.body.style.overflow = "unset";
+    };
+  }, [menuOpen]);
 
   return (
     <header className={css.header}>
