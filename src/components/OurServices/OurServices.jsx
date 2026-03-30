@@ -15,16 +15,16 @@ export default function OurServices() {
           <ul className={css.servicesList}>
             <li className={css.serviceItem}>
               <ServiceCard
-                url={tnvd}
-                alt="Ремонт ПНВТ"
-                description={decsriptionTNVD}
+                url={injectors}
+                alt="Ремонт форсунок"
+                description={decsriptionInjectors}
               />
             </li>
             <li className={css.serviceItem}>
               <ServiceCard
-                url={injectors}
-                alt="Ремонт форсунок"
-                description={decsriptionInjectors}
+                url={tnvd}
+                alt="Ремонт ПНВТ"
+                description={decsriptionTNVD}
               />
             </li>
           </ul>
