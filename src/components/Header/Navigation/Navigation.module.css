@@ -1,29 +1,57 @@
 .navigation {
-    background-color: transparent;
+  /* background-color: transparent; */
+  position: fixed;
+  top: 80px;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(255, 255, 255, 0.7);
+  z-index: 999;
+  padding: 30px 20px;
 }
 .list {
-    display: flex;
-    gap: 1.5em;
-    color: black;
+  display: flex;
+  gap: 1.5em;
+  color: black;
+  flex-direction: column;
+  text-align: end;
 }
-@media (max-width: 767px) {
-    .navigation {
-        position: fixed;
-        top: 80px;
-        left: 0;
-        right: 0;
-        bottom: 0;
-        /* background-color: #ffffff; */
-        background-color: rgba(255, 255, 255, 0.7);
-        z-index: 999;
-        padding: 30px 20px;
-    }
+
+.mobileNav .item a {
+  /* color: #222; */
+  /* text-decoration: none; */
+  font-size: 1.4rem;
+  font-weight: 500;
+  /* padding: 8px 0; */
+}
+
+
+/* @media (max-width: 767px) {
+  .navigation {
+    position: fixed;
+    top: 80px;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(255, 255, 255, 0.7);
+    z-index: 999;
+    padding: 30px 20px;
+  }
   .list {
     display: flex;
     gap: 1.5em;
     flex-direction: column;
   }
+} */
+@media (min-width: 768px) {
+  .navigation {
+    position: unset;
+  }
+  .list {
+    flex-direction: row;
+  }
 }
+
 /* Десктопна навігація */
 .desktopNav {
   display: none;
@@ -32,25 +60,32 @@
 @media (min-width: 768px) {
   .desktopNav {
     display: block;
-  }   
+  }
 }
-
-
-/* Мобільне меню (slide-in) */
-.mobileNav .list {
-  display: flex;
-  flex-direction: column;
-  gap: 2rem;
-  list-style: none;
-  margin: 0;
-  padding: 0;
-  text-align: end;
+.desktopNav .item a {
+  transition: transform 0.3s ease, color 0.3s ease;
 }
-
-.mobileNav .item a {
-  color: #222;
-  text-decoration: none;
-  font-size: 1.4rem;
-  font-weight: 500;
-  padding: 8px 0;
+.desktopNav .item a:hover,
+.desktopNav .item a:focus {
+  color: #f3282b;
 }
+.desktopNav .item a {
+  position: relative;
+}
+.desktopNav .item a::after {
+  content: "";
+    position: absolute;
+    left: 0;
+    bottom: -4px;
+    width: 0;
+    height: 2px;
+    background: currentColor;
+    transition: width 0.3s ease;
+}
+.desktopNav .item a:hover::after,
+.desktopNav .item a:focus::after {
+  width: 100%;
+}
+/* .desktopNav .item a:hover:active::after {
+  width: 100%;
+} */
