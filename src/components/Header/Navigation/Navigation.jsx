@@ -30,6 +30,15 @@ const isActive = (path) => {
         </li>
         <li className={css.item}>
           <a
+            href="/photo"
+            onClick={handleClick}
+            className={isActive("/photo") ? css.active : ""}
+          >
+            Фото
+          </a>
+        </li>
+        <li className={css.item}>
+          <a
             href="/about"
             onClick={handleClick}
             className={isActive("/about") ? css.active : ""}

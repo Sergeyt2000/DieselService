@@ -8,6 +8,7 @@ import HomePage from './pages/HomePage/HomePage.jsx'
 import AboutPage from './pages/AboutPage/AboutPage.jsx'
 import Footer from './components/Footer/Footer.jsx'
 import ContactsPage from './pages/ContactsPage/ContactsPage.jsx';
+import PhotoPage from './pages/PhotoPage/PhotoPage.jsx';
 
 function App() {
   // const [count, setCount] = useState(0)
@@ -18,6 +19,7 @@ function App() {
       <main className="main">
         <Routes>
           <Route path="/" element={<HomePage />} />
+          <Route path="/photo" element={<PhotoPage />} />
           <Route path="/about" element={<AboutPage />} />
           <Route path="/contacts" element={<ContactsPage />} />
         </Routes>

@@ -1,5 +1,6 @@
 import css from "./ContactsFooter.module.css";
 import Socials from "./Socials/Socials.jsx";
+import SocialNetworks from "./SocialNetworks/SocialNetworks.jsx";
 
 export default function Contacts() {
   return (
@@ -20,6 +21,7 @@ export default function Contacts() {
         </li>
       </ul>
       <Socials />
+      <SocialNetworks />
     </div>
   );
 }

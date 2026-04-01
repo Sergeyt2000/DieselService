@@ -1,7 +1,7 @@
 import css from "./OurServices.module.css";
 import ServiceCard from "./ServiceCard/ServiceCard.jsx";
-import tnvd from "../../assets/images/ServiceCard/tnvd.jpg";
-import injectors from "../../assets/images/ServiceCard/injectors.jpg";
+// import tnvd from "../../assets/images/ServiceCard/tnvd.jpg";
+// import injectors from "../../assets/images/ServiceCard/injectors.jpg";
 
 export default function OurServices() {
   const decsriptionTNVD =
@@ -15,14 +15,14 @@ export default function OurServices() {
         <ul className={css.servicesList}>
           <li className={css.serviceItem}>
             <ServiceCard
-              url={injectors}
+              url="/img/ServiceCard/injectors.jpg"
               alt="Ремонт форсунок"
               description={decsriptionInjectors}
             />
           </li>
           <li className={css.serviceItem}>
             <ServiceCard
-              url={tnvd}
+              url="/img/ServiceCard/tnvd.jpg"
               alt="Ремонт ПНВТ"
               alt2="(Паливний насос високого тиску)"
               description={decsriptionTNVD}
