@@ -14,6 +14,9 @@ export default function Contacts() {
           <a href="tel:+380931225542">+380931225542</a>
         </li>
         <li>
+          <SocialNetworks />
+        </li>
+        <li>
           <a href="mailto:diesel.van2025@gmail.com">diesel.van2025@gmail.com</a>
         </li>
         <li>
@@ -21,7 +24,6 @@ export default function Contacts() {
         </li>
       </ul>
       <Socials />
-      <SocialNetworks />
     </div>
   );
 }
