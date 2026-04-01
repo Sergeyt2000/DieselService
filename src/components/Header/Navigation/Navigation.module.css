@@ -8,6 +8,7 @@
   background-color: rgba(255, 255, 255, 0.7);
   z-index: 999;
   padding: 30px 20px;
+  box-sizing: border-box;
 }
 .list {
   display: flex;
@@ -46,9 +47,12 @@
 @media (min-width: 768px) {
   .navigation {
     position: unset;
+    background-color: transparent;
+    padding: 0;
   }
   .list {
     flex-direction: row;
+    gap: 4em;
   }
 }
 
@@ -62,7 +66,8 @@
     display: block;
   }
 }
-.desktopNav .item a {
+.desktopNav .item a {  
+  font-size: 1.4em;
   transition: transform 0.3s ease, color 0.3s ease;
 }
 .desktopNav .item a:hover,
@@ -89,3 +94,20 @@
 /* .desktopNav .item a:hover:active::after {
   width: 100%;
 } */
+
+.active {
+  /* color: #f3282b !important; */
+  position: relative;
+  /* cursor: default; */
+}
+
+.active::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -4px;
+  width: 100% !important;
+  height: 2px;
+  /* background: #f3282b; */
+  color: #f3282b;
+}
