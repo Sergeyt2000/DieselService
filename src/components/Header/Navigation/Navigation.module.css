@@ -12,7 +12,7 @@
 }
 .list {
   display: flex;
-  gap: 1.5em;
+  gap: 1.4em;
   color: black;
   flex-direction: column;
   text-align: end;
@@ -21,7 +21,7 @@
 .mobileNav .item a {
   /* color: #222; */
   /* text-decoration: none; */
-  font-size: 1.4rem;
+  font-size: 1.4em;
   font-weight: 500;
   /* padding: 8px 0; */
 }
@@ -50,6 +50,12 @@
     background-color: transparent;
     padding: 0;
   }
+  .list {
+    flex-direction: row;
+    gap: 2em;
+  }
+}
+@media (min-width: 1024px) {
   .list {
     flex-direction: row;
     gap: 4em;

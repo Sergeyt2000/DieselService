@@ -19,7 +19,12 @@
   .container {
     /* height: 80px; */
     /* max-width: 1200px; */
-    padding: 0 60px;
+    padding: 0 40px;
+  }
+}
+@media (min-width: 1024px) {
+    .container {
+      padding: 0 60px;
   }
 }
 

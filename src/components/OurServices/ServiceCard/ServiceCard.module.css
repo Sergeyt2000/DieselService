@@ -26,3 +26,13 @@
     align-items: center;
     margin-top: 20px;
 }
+@media (min-width: 768px) {
+  .content {
+    font-size: 1.2em;
+  }
+}
+@media (min-width: 1024px) {
+    .content {
+    font-size: 1.4em;
+  }
+}
