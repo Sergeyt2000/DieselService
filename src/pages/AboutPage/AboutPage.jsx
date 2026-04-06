@@ -44,7 +44,7 @@ export default function AboutPage() {
           та кодування
         </li>
       </ul>
-      <p>
+      <p className={css.text}>
         Ми намагаємося провести найбільш оптимальний та недорогий ремонт
         дизельних форсунок.
       </p>

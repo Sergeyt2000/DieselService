@@ -1,6 +1,16 @@
+.contacts {
+  display: flex;
+  flex-direction: column;
+  /* gap: 10px; */
+  font-size: 1em;
+  text-align: center;
+  align-items: center;
+}
 @media (min-width: 768px) {
   .contacts {
     font-size: 1.2em;
+    text-align: left;
+    align-items: flex-start;
   }
 }
 @media (min-width: 1024px) {

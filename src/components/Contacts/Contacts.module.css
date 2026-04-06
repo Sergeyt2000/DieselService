@@ -6,12 +6,30 @@
 }
 @media (min-width: 768px) {
   .contacts {
+    /* flex-direction: row; */
+    /* gap: 200px; */
+    /* justify-content: space-between; */
+    font-size: 1.2em;
+  }
+  .text {
+    font-size: 1.2em;
+  }
+}
+@media (min-width: 1024px) {
+  .contacts {
     flex-direction: row;
     gap: 200px;
+    font-size: 1.4em;
+  }
+  .text {
+    font-size: 1.4em;
   }
 }
 .contactItem {
   display: flex;
   gap: 4px;
-  /* align-items: center; */
+  align-items: center;
+}
+.title {
+  text-align: center;
 }

@@ -1,6 +1,14 @@
+.services {
+  display: flex;
+  flex-direction: column;
+  /* gap: 10px; */
+  font-size: 1em;
+  text-align: center;
+}
 @media (min-width: 768px) {
   .services {
     font-size: 1.2em;
+    text-align: left;
   }
 }
 @media (min-width: 1024px) {

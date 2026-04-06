@@ -6,11 +6,19 @@
 .socialsList {
   display: flex;
   gap: 20px;
+  justify-content: center;
+}
+@media (min-width: 768px) {
+  .socialsList {
+    justify-content: start;
+  }
 }
 .socialsIcon {
   transition: 500ms cubic-bezier(0.075, 0.82, 0.165, 1);
 }
-
+.socialsIcon:hover {
+  scale: 1.2;
+}
 /* .socialsIcon {
   width: 24px;
   height: 24px;

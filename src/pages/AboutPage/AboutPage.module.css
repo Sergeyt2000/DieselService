@@ -3,7 +3,25 @@
     margin: 0 auto;
     padding: 20px;
 }
+.title {
+    font-size: 2em;
+    text-align: center;
+}
 .list {
     list-style-type: disc;
     padding-left: 20px;
+}
+@media (min-width: 768px) {  
+    .description,
+    .text,
+    .listItem {
+        font-size: 1.2em;
+    }
+}
+@media (min-width: 1024px) {  
+    .description,
+    .text,
+    .listItem {
+        font-size: 1.4em;
+    }
 }

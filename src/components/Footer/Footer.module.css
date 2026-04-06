@@ -21,8 +21,9 @@
   }
 }
 @media (min-width: 1024px) {
-    .footerContent {
-      padding: 20px 60px;
+  .footerContent {
+    padding: 20px 60px;
+    justify-content: space-around;
   }
 }
 
