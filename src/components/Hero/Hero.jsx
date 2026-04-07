@@ -4,12 +4,11 @@ export default function Hero() {
     return (
       <div className={css.hero}>
         <div className={css.content}>
-          {/* <h1>Ласкаво просимо до Diesel Service!</h1> */}
+          <h1 className={css.title}>
+            Ремонт та діагностика форсунок і паливних насосів високого тиску (ПНВТ)
+          </h1>
           {/* <h1>Ласкаво просимо до Diesel Injector Service!</h1> */}
           <img className={css.logo} src="/img/dis-logo.png" alt="Logo"></img>
-          {/* <p>
-            Ваш надійний партнер у світі дизельних двигунів та обслуговування.
-          </p> */}
         </div>
       </div>
     );
