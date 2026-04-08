@@ -11,26 +11,62 @@ export default function BookingModal({ isOpen, onClose }) {
     comment: "",
   });
 
-  const [status, setStatus] = useState("idle"); // idle | sending | success | error
+  const [status, setStatus] = useState("idle");
+  const [phoneError, setPhoneError] = useState("");
 
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
+    if (e.target.name === "phone") setPhoneError("");
   };
 
   const sendToTelegram = async (e) => {
     e.preventDefault();
     setStatus("sending");
+    setPhoneError("");
+
+    // Проста перевірка телефону
+    const phoneClean = formData.phone.replace(/\D/g, "");
+    if (phoneClean.length < 9) {
+      setPhoneError("Введіть коректний номер телефону");
+      setStatus("idle");
+      return;
+    }
+
+    const message = `
+🚗 <b>Нова заявка на запис!</b>
+
+👤 Ім'я: ${formData.name}
+📱 Телефон: ${formData.phone}
+🚘 Авто: ${formData.car || "—"}
+🔧 Послуга: ${formData.service}
+📅 Дата та час: ${formData.date || "—"}
+💬 Коментар: ${formData.comment || "—"}
+    `.trim();
+
+    const BOT_TOKEN = import.meta.env.VITE_TELEGRAM_BOT_TOKEN;
+    const CHAT_ID = import.meta.env.VITE_TELEGRAM_CHAT_ID;
+
+    if (!BOT_TOKEN || !CHAT_ID) {
+      setStatus("error");
+      console.error("Telegram credentials missing");
+      return;
+    }
 
     try {
-      const response = await fetch("/api/send-to-telegram", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(formData),
-      });
+      const res = await fetch(
+        `https://api.telegram.org/bot${BOT_TOKEN}/sendMessage`,
+        {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({
+            chat_id: CHAT_ID,
+            text: message,
+            parse_mode: "HTML",
+          }),
+        },
+      );
 
-      const result = await response.json();
-
-      if (response.ok) {
+      if (res.ok) {
         setStatus("success");
         setTimeout(() => {
           onClose();
@@ -43,9 +79,8 @@ export default function BookingModal({ isOpen, onClose }) {
             comment: "",
           });
           setStatus("idle");
-        }, 2500);
+        }, 2800);
       } else {
-        console.error(result);
         setStatus("error");
       }
     } catch (err) {
@@ -75,14 +110,19 @@ export default function BookingModal({ isOpen, onClose }) {
             onChange={handleChange}
             required
           />
-          <input
-            type="tel"
-            name="phone"
-            placeholder="+380 XX XXX XX XX *"
-            value={formData.phone}
-            onChange={handleChange}
-            required
-          />
+
+          <div className={css.phoneWrapper}>
+            <input
+              type="tel"
+              name="phone"
+              placeholder="+380 XX XXX XX XX *"
+              value={formData.phone}
+              onChange={handleChange}
+              required
+            />
+            {phoneError && <span className={css.errorText}>{phoneError}</span>}
+          </div>
+
           <input
             type="text"
             name="car"
@@ -140,7 +180,7 @@ export default function BookingModal({ isOpen, onClose }) {
         )}
         {status === "error" && (
           <p className={css.error}>
-            ❌ Помилка відправки. Спробуйте ще раз або зателефонуйте нам.
+            ❌ Помилка. Спробуйте ще раз або зателефонуйте нам.
           </p>
         )}
       </div>
