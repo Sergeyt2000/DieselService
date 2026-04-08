@@ -1,0 +1,44 @@
+.floatingBtn {
+  position: fixed;
+  bottom: 25px;
+  right: 25px;
+  background: linear-gradient(135deg, #ff6600, #ff8533);
+  color: white;
+  border: none;
+  border-radius: 50px;
+  padding: 14px 24px;
+  font-size: 16px;
+  font-weight: 600;
+  box-shadow: 0 8px 25px rgba(255, 102, 0, 0.35);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  z-index: 999;
+  transition: all 0.3s ease;
+  white-space: nowrap;
+}
+
+.floatingBtn:hover {
+  transform: translateY(-4px) scale(1.05);
+  box-shadow: 0 12px 30px rgba(255, 102, 0, 0.45);
+}
+
+.floatingBtn:active {
+  transform: scale(0.95);
+}
+
+/* Адаптивність - на дуже маленьких екранах робимо кнопку круглою з іконкою */
+@media (max-width: 480px) {
+  .floatingBtn {
+    padding: 16px;
+    border-radius: 50%;
+    font-size: 20px;
+    bottom: 20px;
+    right: 20px;
+  }
+  
+  .floatingBtn span {
+    display: none;
+  }
+}

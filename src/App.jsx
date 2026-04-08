@@ -6,6 +6,7 @@ import AboutPage from './pages/AboutPage/AboutPage.jsx'
 import Footer from './components/Footer/Footer.jsx'
 import ContactsPage from './pages/ContactsPage/ContactsPage.jsx';
 import PhotoPage from './pages/PhotoPage/PhotoPage.jsx';
+import FloatingButton from './components/FloatingButton/FloatingButton.jsx';
 
 function App() {
 
@@ -21,6 +22,7 @@ function App() {
         </Routes>
       </main>
       <Footer />
+      <FloatingButton />
     </>
   );
 }
