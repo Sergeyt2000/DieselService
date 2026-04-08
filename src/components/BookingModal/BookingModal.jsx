@@ -11,12 +11,17 @@ export default function BookingModal({ isOpen, onClose }) {
     comment: "",
   });
 
-  const [status, setStatus] = useState("idle");
+  const [status, setStatus] = useState("idle"); // idle | sending | success | error
   const [phoneError, setPhoneError] = useState("");
 
   const handleChange = (e) => {
-    setFormData({ ...formData, [e.target.name]: e.target.value });
-    if (e.target.name === "phone") setPhoneError("");
+    const { name, value } = e.target;
+    setFormData({ ...formData, [name]: value });
+
+    // Скидаємо помилку телефону при зміні
+    if (name === "phone") {
+      setPhoneError("");
+    }
   };
 
   const sendToTelegram = async (e) => {
@@ -24,7 +29,7 @@ export default function BookingModal({ isOpen, onClose }) {
     setStatus("sending");
     setPhoneError("");
 
-    // Проста перевірка телефону
+    // Перевірка телефону
     const phoneClean = formData.phone.replace(/\D/g, "");
     if (phoneClean.length < 9) {
       setPhoneError("Введіть коректний номер телефону");
@@ -32,25 +37,28 @@ export default function BookingModal({ isOpen, onClose }) {
       return;
     }
 
-    const message = `
-🚗 <b>Нова заявка на запис!</b>
-
-👤 Ім'я: ${formData.name}
-📱 Телефон: ${formData.phone}
-🚘 Авто: ${formData.car || "—"}
-🔧 Послуга: ${formData.service}
-📅 Дата та час: ${formData.date || "—"}
-💬 Коментар: ${formData.comment || "—"}
-    `.trim();
-
     const BOT_TOKEN = import.meta.env.VITE_TELEGRAM_BOT_TOKEN;
     const CHAT_ID = import.meta.env.VITE_TELEGRAM_CHAT_ID;
 
+    // Перевірка наявності токена
     if (!BOT_TOKEN || !CHAT_ID) {
+      console.error("❌ Telegram credentials не знайдено в .env");
       setStatus("error");
-      console.error("Telegram credentials missing");
       return;
     }
+
+    const message = `
+🚗 <b>Нова заявка з сайту Diesel Service</b>
+
+👤 Ім'я: <b>${formData.name}</b>
+📱 Телефон: <b>${formData.phone}</b>
+🚘 Авто: ${formData.car || "—"}
+🔧 Послуга: <b>${formData.service}</b>
+📅 Дата та час: ${formData.date || "—"}
+💬 Коментар: ${formData.comment || "—"}
+
+🌐 Відправлено з: ${window.location.origin}
+    `.trim();
 
     try {
       const res = await fetch(
@@ -68,6 +76,8 @@ export default function BookingModal({ isOpen, onClose }) {
 
       if (res.ok) {
         setStatus("success");
+
+        // Автозакриття модального вікна через 2.8 секунди
         setTimeout(() => {
           onClose();
           setFormData({
@@ -82,9 +92,10 @@ export default function BookingModal({ isOpen, onClose }) {
         }, 2800);
       } else {
         setStatus("error");
+        console.error("Telegram API error");
       }
     } catch (err) {
-      console.error(err);
+      console.error("Помилка під час відправки:", err);
       setStatus("error");
     }
   };
@@ -178,9 +189,10 @@ export default function BookingModal({ isOpen, onClose }) {
             ✅ Заявка відправлена! Ми скоро зв'яжемося з вами.
           </p>
         )}
+
         {status === "error" && (
           <p className={css.error}>
-            ❌ Помилка. Спробуйте ще раз або зателефонуйте нам.
+            ❌ Помилка відправки. Спробуйте ще раз або зателефонуйте нам.
           </p>
         )}
       </div>
