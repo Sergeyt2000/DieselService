@@ -150,6 +150,7 @@ export default function BookingModal({ isOpen, onClose }) {
             <option value="Ремонт форсунок">Ремонт форсунок</option>
             <option value="Ремонт ПНВТ / ТНВД">Ремонт ПНВТ / ТНВД</option>
             <option value="Діагностика">Діагностика паливної системи</option>
+            <option value="Діагностика автомобіля">Комп'ютерна діагностика автомобіля</option>
             <option value="Інше">Інше</option>
           </select>
 

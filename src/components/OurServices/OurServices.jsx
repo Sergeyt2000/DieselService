@@ -14,7 +14,7 @@ export default function OurServices() {
   return (
     <section className={css.ourServices}>
       <div className={css.container}>
-        <h2 className={css.title}>Пропонуємо (Здійснюємо, Робимо)</h2>
+        <h2 className={css.title}>Наші послуги</h2>
         <ul className={css.servicesList}>
           <li className={css.serviceItem}>
             <ServiceCard
