@@ -1,5 +1,4 @@
 import { useState } from "react";
-// import css from "./BookingModal.module.css";
 import css from "./BookingModal_white.module.css";
 
 export default function BookingModal({ isOpen, onClose }) {
@@ -22,35 +21,16 @@ export default function BookingModal({ isOpen, onClose }) {
     e.preventDefault();
     setStatus("sending");
 
-    const message = `
-🚗 <b>Нова заявка на запис!</b>
-
-👤 Ім'я: ${formData.name}
-📱 Телефон: ${formData.phone}
-🚘 Авто: ${formData.car || "—"}
-🔧 Послуга: ${formData.service}
-📅 Бажана дата/час: ${formData.date || "—"}
-💬 Коментар: ${formData.comment || "—"}
-    `.trim();
-
-    const BOT_TOKEN = import.meta.env.VITE_TELEGRAM_BOT_TOKEN;
-    const CHAT_ID = import.meta.env.VITE_TELEGRAM_CHAT_ID;
-
     try {
-      const res = await fetch(
-        `https://api.telegram.org/bot${BOT_TOKEN}/sendMessage`,
-        {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({
-            chat_id: CHAT_ID,
-            text: message,
-            parse_mode: "HTML",
-          }),
-        },
-      );
+      const response = await fetch("/api/send-to-telegram", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(formData),
+      });
 
-      if (res.ok) {
+      const result = await response.json();
+
+      if (response.ok) {
         setStatus("success");
         setTimeout(() => {
           onClose();
@@ -65,6 +45,7 @@ export default function BookingModal({ isOpen, onClose }) {
           setStatus("idle");
         }, 2500);
       } else {
+        console.error(result);
         setStatus("error");
       }
     } catch (err) {
@@ -121,14 +102,6 @@ export default function BookingModal({ isOpen, onClose }) {
             <option value="Інше">Інше</option>
           </select>
 
-          {/* <input
-            type="text"
-            name="date"
-            placeholder="Бажана дата / час"
-            value={formData.date}
-            onChange={handleChange}
-          /> */}
-          {/* Поле дати та часу */}
           <div className={css.dateWrapper}>
             <label htmlFor="date">Бажана дата та час</label>
             <input
@@ -167,11 +140,10 @@ export default function BookingModal({ isOpen, onClose }) {
         )}
         {status === "error" && (
           <p className={css.error}>
-            ❌ Помилка. Спробуйте ще раз або зателефонуйте нам.
+            ❌ Помилка відправки. Спробуйте ще раз або зателефонуйте нам.
           </p>
         )}
       </div>
     </div>
   );
 }
-
