@@ -35,3 +35,71 @@
     min-height: max-content;
   }
 }
+/* .button {
+  align-self: center;
+  padding: 12px 24px;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+} */
+ .button {
+  align-self: center;
+  margin-top: 10px;
+  padding: 16px 20px;
+  background: linear-gradient(135deg, #ff6600, #ff8533);
+  color: white;
+  border: none;
+  border-radius: 12px;
+  font-size: 1.2em;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 6px 20px rgba(255, 102, 0, 0.25);
+}
+.button:hover:not(:disabled) {
+  transform: translateY(-3px);
+  box-shadow: 0 12px 28px rgba(255, 102, 0, 0.35);
+}
+
+/* Поле дати та часу */
+.dateWrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.dateWrapper label {
+  font-size: 14px;
+  font-weight: 600;
+  color: #333;
+  margin-bottom: 2px;
+}
+
+.dateInput {
+  width: 100%;
+  padding: 14px 16px;
+  background: #f8f9fa;
+  border: 2px solid #e0e0e0;
+  border-radius: 12px;
+  color: #1a1a1a;
+  font-size: 16px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.dateInput:focus {
+  outline: none;
+  border-color: #ff6600;
+  background: #ffffff;
+  box-shadow: 0 0 0 4px rgba(255, 102, 0, 0.12);
+}
+
+.hint {
+  font-size: 13px;
+  color: #666;
+  margin-top: 2px;
+}

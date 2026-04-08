@@ -1,0 +1,189 @@
+/* BookingModal.module.css - Світла тема */
+
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.75);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  animation: fadeIn 0.3s ease;
+}
+
+.modal {
+  background: #ffffff;
+  width: 90%;
+  max-width: 480px;
+  border-radius: 20px;
+  padding: 32px 28px;
+  position: relative;
+  box-shadow: 0 25px 70px rgba(0, 0, 0, 0.25);
+  animation: slideUp 0.4s ease;
+  border: 1px solid #e5e5e5;
+}
+
+.closeBtn {
+  position: absolute;
+  top: 20px;
+  right: 24px;
+  background: none;
+  border: none;
+  font-size: 28px;
+  color: #666;
+  cursor: pointer;
+  transition: color 0.2s;
+}
+
+.closeBtn:hover {
+  color: #ff3b30;
+}
+
+/* Заголовки */
+.modal h2 {
+  margin: 0 0 10px 0;
+  color: #1a1a1a;
+  font-size: 26px;
+  font-weight: 700;
+}
+
+.modal p {
+  margin: 0 0 28px 0;
+  color: #555;
+  font-size: 15.5px;
+  line-height: 1.5;
+}
+
+/* Поля форми */
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+input,
+select,
+textarea {
+  width: 100%;
+  padding: 14px 16px;
+  background: #f8f9fa;
+  border: 2px solid #e0e0e0;
+  border-radius: 12px;
+  color: #1a1a1a;
+  font-size: 16px;
+  transition: all 0.3s ease;
+  box-sizing: border-box;
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+  outline: none;
+  border-color: #ff6600;
+  background: #ffffff;
+  box-shadow: 0 0 0 4px rgba(255, 102, 0, 0.12);
+}
+
+/* Обгортка для телефону з помилкою */
+.phoneWrapper {
+  position: relative;
+}
+
+.errorText {
+  position: absolute;
+  bottom: -18px;
+  left: 4px;
+  color: #ff3b30;
+  font-size: 13px;
+}
+
+textarea {
+  min-height: 110px;
+  resize: vertical;
+}
+
+/* Кнопка відправки */
+.submitBtn {
+  margin-top: 10px;
+  padding: 16px 20px;
+  background: linear-gradient(135deg, #ff6600, #ff8533);
+  color: white;
+  border: none;
+  border-radius: 12px;
+  font-size: 17px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 6px 20px rgba(255, 102, 0, 0.25);
+}
+
+.submitBtn:hover:not(:disabled) {
+  transform: translateY(-3px);
+  box-shadow: 0 12px 28px rgba(255, 102, 0, 0.35);
+}
+
+.submitBtn:disabled {
+  opacity: 0.75;
+  cursor: not-allowed;
+  transform: none;
+}
+
+/* Повідомлення статусу */
+.successMessage {
+  margin-top: 12px;
+  padding: 14px 16px;
+  background: #e8f5e9;
+  color: #2e7d32;
+  border-radius: 10px;
+  text-align: center;
+  font-weight: 500;
+  border: 1px solid #a5d6a7;
+}
+
+.errorMessage {
+  margin-top: 12px;
+  padding: 14px 16px;
+  background: #ffebee;
+  color: #c62828;
+  border-radius: 10px;
+  text-align: center;
+  font-weight: 500;
+  border: 1px solid #ef9a9a;
+}
+
+/* Анімації */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(50px) scale(0.96);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+/* Мобільна адаптивність */
+@media (max-width: 480px) {
+  .modal {
+    width: 94%;
+    padding: 28px 22px;
+    border-radius: 16px;
+  }
+
+  .modal h2 {
+    font-size: 24px;
+  }
+
+  .modal p {
+    font-size: 15px;
+  }
+}

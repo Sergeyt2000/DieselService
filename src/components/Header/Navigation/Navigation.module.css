@@ -78,7 +78,8 @@
 }
 .desktopNav .item a:hover,
 .desktopNav .item a:focus {
-  color: #f3282b;
+  /* color: #f3282b; */
+  color:#ff6600;
 }
 .desktopNav .item a {
   position: relative;
@@ -89,7 +90,7 @@
     left: 0;
     bottom: -4px;
     width: 0;
-    height: 2px;
+    height: 3px;
     background: currentColor;
     transition: width 0.3s ease;
 }
@@ -115,5 +116,6 @@
   width: 100% !important;
   height: 2px;
   /* background: #f3282b; */
-  color: #f3282b;
+  /* color: #f3282b; */
+  color: #ff6600;
 }
