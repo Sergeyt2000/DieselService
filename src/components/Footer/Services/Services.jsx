@@ -1,17 +1,17 @@
-import css from './Services.module.css';
+import css from "./Services.module.css";
 
 export default function Services() {
   return (
     <div className={css.services}>
-      <h2 className={css.title}>Наші послуги</h2>
+      <h3 className={css.title}>Наші послуги</h3>
       <ul className={css.servicesList}>
-        <li className={css.serviceItem}>Діагностика форсунок</li>
-        <li className={css.serviceItem}>Ремонт форсунок</li>
-        <li className={css.serviceItem}>Кодування форсунок</li>
-        <li className={css.serviceItem}>Діагностика ПНВТ</li>
-        <li className={css.serviceItem}>Ремонт ПНВТ</li>
-        <li className={css.serviceItem}>Перевірка rail</li>
-        <li className={css.serviceItem}>Перевірка клапана PCV/DRV</li>
+        <li>Діагностика форсунок Common Rail</li>
+        <li>Ремонт дизельних форсунок</li>
+        <li>Кодування та калібрування форсунок</li>
+        <li>Діагностика та ремонт ТНВД / ПНВТ</li>
+        <li>Перевірка та ремонт рейки Common Rail</li>
+        <li>Діагностика клапана PCV / DRV</li>
+        <li>Ультразвукова чистка форсунок</li>
       </ul>
     </div>
   );

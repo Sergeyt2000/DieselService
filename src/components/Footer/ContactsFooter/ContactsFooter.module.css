@@ -1,20 +1,67 @@
 .contacts {
-  display: flex;
-  flex-direction: column;
-  /* gap: 10px; */
-  font-size: 1em;
   text-align: center;
-  align-items: center;
 }
+
 @media (min-width: 768px) {
   .contacts {
-    font-size: 1.2em;
     text-align: left;
-    align-items: flex-start;
   }
 }
+
+.title {
+  font-size: 1.35rem;
+  font-weight: 600;
+  color: #1a1a1a;
+  margin-bottom: 18px;
+  /* text-align: center; */
+}
+
+.contactInfo {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  /* margin-bottom: 20px; */
+}
+
+.contactLink {
+  color: #333;
+  text-decoration: none;
+  font-size: 1.05rem;
+  transition: color 0.2s;
+}
 @media (min-width: 1024px) {
-    .contacts {
-    font-size: 1.4em;
+  .contactLink {
+    font-size: 1.1rem;
+  }
+}
+
+.contactLink:hover {
+  color: #ff6600;
+}
+
+.address {
+  color: #555;
+  font-size: 1.05rem;
+  /* margin: 8px 0 0; */
+}
+@media (min-width: 1024px) {
+  .address {
+    font-size: 1.1rem;
+  }
+}
+
+.socialWrapper {
+  margin-top: 15px;
+}
+
+/* Адаптивність */
+@media (max-width: 768px) {
+  .title {
+    font-size: 1.25rem;
+  }
+  
+  .contactLink,
+  .address {
+    font-size: 1.02rem;
   }
 }

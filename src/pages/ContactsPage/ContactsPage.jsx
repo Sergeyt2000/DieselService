@@ -4,6 +4,10 @@ import css from "./ContactsPage.module.css";
 export default function ContactsPage() {
     return (
       <div className={css.contactsPage}>
+        <div className={css.header}>
+          <h1 className={css.title}>Контакти</h1>
+          <p className={css.subtitle}>Зв'яжіться з нами зручним способом</p>
+        </div>
         <div className={css.content}>
           <Contacts />
           <div className={css.map}>

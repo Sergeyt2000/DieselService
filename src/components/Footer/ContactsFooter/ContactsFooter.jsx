@@ -1,29 +1,28 @@
 import css from "./ContactsFooter.module.css";
-import Socials from "./Socials/Socials.jsx";
 import SocialNetworks from "./SocialNetworks/SocialNetworks.jsx";
+import Socials from "./Socials/Socials.jsx";
 
-export default function Contacts() {
+export default function ContactsFooter() {
   return (
     <div className={css.contacts}>
-      <h2 className={css.title}>Контакти</h2>
-      <ul className={css.contactList}>
-        <li className={css.contactItem}>
-          <a href="tel:+380685225547">+380685225547</a>
-        </li>
-        <li className={css.contactItem}>
-          <a href="tel:+380931225542">+380931225542</a>
-        </li>
-        <li className={css.contactItem}>
-          <SocialNetworks />
-        </li>
-        <li className={css.contactItem}>
-          <a href="mailto:diesel.van2025@gmail.com">diesel.van2025@gmail.com</a>
-        </li>
-        <li className={css.contactItem}>
-          <p>м. Київ, вул. Городня 13</p>
-        </li>
-      </ul>
-      <Socials />
+      <h3 className={css.title}>Контакти</h3>
+
+      <div className={css.contactInfo}>
+        <a href="tel:+380685225547" className={css.contactLink}>
+          +38 (068) 522-55-47
+        </a>
+        <a href="tel:+380931225542" className={css.contactLink}>
+          +38 (093) 122-55-42
+        </a>
+        {/* <div className={css.socialWrapper}> */}
+        <SocialNetworks />
+        {/* </div> */}
+        <a href="mailto:diesel.van2025@gmail.com" className={css.contactLink}>
+          diesel.van2025@gmail.com
+        </a>
+        <p className={css.address}>м. Київ, вул. Городня, 13</p>
+        <Socials />
+      </div>
     </div>
   );
 }

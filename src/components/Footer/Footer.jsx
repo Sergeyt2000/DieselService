@@ -9,6 +9,9 @@ export default function Footer() {
       <div className={css.footerContent}>
         <div className={css.logo}>
           <Logo />
+          {/* <p className={css.slogan}>
+            Професійний ремонт дизельних форсунок та ПНВТ
+          </p> */}
         </div>
         <Services />
         <ContactsFooter />

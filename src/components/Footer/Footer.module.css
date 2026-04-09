@@ -9,7 +9,6 @@
   gap: 20px;
   margin: 0 auto;
   padding: 20px;
-  /* background-color: rgb(60, 130, 235); */
 }
 @media (min-width: 768px) {
   .footerContent {
@@ -35,3 +34,8 @@
     display: block;
   }
 }
+/* .slogan {
+  font-size: 0.95rem;
+  color: #aaa;
+  max-width: 260px;
+} */
