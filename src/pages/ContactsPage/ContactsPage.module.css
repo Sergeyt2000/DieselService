@@ -1,10 +1,9 @@
-/* ContactsPage.module.css */
-
 .contactsPage {
   background: #f8f9fa;
   min-height: 100vh;
   padding: 40px 20px 80px;
 }
+
 .header {
   text-align: center;
   margin-bottom: 40px;
@@ -16,25 +15,19 @@
   color: #1a1a1a;
   margin-bottom: 8px;
 }
+
 @media (max-width: 768px) {
   .title {
     font-size: 2.2rem;
   }
 }
-.title::after {
-  content: '';
-  display: block;
-  width: 120px;
-  height: 4px;
-  background: #ff6600;
-  margin: 16px auto;
-  border-radius: 2px;
-}
+
 .subtitle {
   font-size: 1.15rem;
   color: #555;
 }
 
+/* Основний контент */
 .content {
   max-width: 1200px;
   margin: 0 auto;
@@ -43,17 +36,24 @@
   gap: 50px;
 }
 
-/* Контактна інформація + карта */
-.infoSection {
-  display: flex;
-  flex-direction: column;
-  gap: 50px;
+/* На великих екранах — два стовпці */
+@media (min-width: 992px) {
+  .content {
+    grid-template-columns: 1fr 1.15fr;   /* Contacts | Map */
+    gap: 70px;
+    align-items: start;
+  }
 }
 
-/* Карта */
+/* Центрування Contacts на мобільних */
+.contactsComponent {
+  display: flex;
+  justify-content: center;
+}
+
 .map {
   position: relative;
-  padding-bottom: 75%;     /* Співвідношення 4:3 */
+  padding-bottom: 75%;
   height: 0;
   overflow: hidden;
   border-radius: 16px;
@@ -70,19 +70,12 @@
 }
 
 /* Адаптивність */
-@media (min-width: 992px) {
-  .content {
-    grid-template-columns: 1fr 1.1fr;   /* Контакти трохи вужчі за карту */
-    gap: 60px;
-  }
-}
-
 @media (max-width: 768px) {
   .contactsPage {
     padding: 30px 15px 60px;
   }
   
   .content {
-    gap: 40px;
+    gap: 45px;
   }
 }
