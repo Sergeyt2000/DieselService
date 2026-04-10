@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import css from "./BookingModal_white.module.css";
 
 export default function BookingModal({ isOpen, onClose }) {
@@ -18,18 +18,45 @@ export default function BookingModal({ isOpen, onClose }) {
     const { name, value } = e.target;
     setFormData({ ...formData, [name]: value });
 
-    // Скидаємо помилку телефону при зміні
     if (name === "phone") {
       setPhoneError("");
     }
   };
+
+  // === НАДІЙНЕ БЛОКУВАННЯ СКРОЛУ НА ФОНІ ===
+  useEffect(() => {
+    if (isOpen) {
+      const scrollY = window.scrollY;
+
+      document.body.style.position = "fixed";
+      document.body.style.top = `-${scrollY}px`;
+      document.body.style.width = "100%";
+      document.body.style.overflow = "hidden";
+    } else {
+      const scrollY = document.body.style.top;
+
+      document.body.style.position = "";
+      document.body.style.top = "";
+      document.body.style.width = "";
+      document.body.style.overflow = "";
+
+      // Відновлюємо позицію скролу
+      window.scrollTo(0, parseInt(scrollY || "0") * -1);
+    }
+
+    return () => {
+      document.body.style.position = "";
+      document.body.style.top = "";
+      document.body.style.width = "";
+      document.body.style.overflow = "";
+    };
+  }, [isOpen]);
 
   const sendToTelegram = async (e) => {
     e.preventDefault();
     setStatus("sending");
     setPhoneError("");
 
-    // Перевірка телефону
     const phoneClean = formData.phone.replace(/\D/g, "");
     if (phoneClean.length < 9) {
       setPhoneError("Введіть коректний номер телефону");
@@ -40,7 +67,6 @@ export default function BookingModal({ isOpen, onClose }) {
     const BOT_TOKEN = import.meta.env.VITE_TELEGRAM_BOT_TOKEN;
     const CHAT_ID = import.meta.env.VITE_TELEGRAM_CHAT_ID;
 
-    // Перевірка наявності токена
     if (!BOT_TOKEN || !CHAT_ID) {
       console.error("❌ Telegram credentials не знайдено в .env");
       setStatus("error");
@@ -77,7 +103,6 @@ export default function BookingModal({ isOpen, onClose }) {
       if (res.ok) {
         setStatus("success");
 
-        // Автозакриття модального вікна через 2.8 секунди
         setTimeout(() => {
           onClose();
           setFormData({
@@ -92,7 +117,6 @@ export default function BookingModal({ isOpen, onClose }) {
         }, 2800);
       } else {
         setStatus("error");
-        console.error("Telegram API error");
       }
     } catch (err) {
       console.error("Помилка під час відправки:", err);
@@ -150,7 +174,9 @@ export default function BookingModal({ isOpen, onClose }) {
             <option value="Ремонт форсунок">Ремонт форсунок</option>
             <option value="Ремонт ПНВТ / ТНВД">Ремонт ПНВТ / ТНВД</option>
             <option value="Діагностика">Діагностика паливної системи</option>
-            <option value="Діагностика автомобіля">Комп'ютерна діагностика автомобіля</option>
+            <option value="Діагностика автомобіля">
+              Комп'ютерна діагностика автомобіля
+            </option>
             <option value="Інше">Інше</option>
           </select>
 
