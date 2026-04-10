@@ -1,4 +1,4 @@
-/* BookingModal_white.module.css - покращена версія для старих телефонів */
+/* BookingModal_white.module.css — фінальна версія для старих телефонів */
 
 .overlay {
   position: fixed;
@@ -6,13 +6,13 @@
   left: 0;
   width: 100%;
   height: 100%;
-  background: rgba(0, 0, 0, 0.8);
+  background: rgba(0, 0, 0, 0.82);
   display: flex;
-  align-items: center;
+  align-items: flex-start;        /* Змінено з center на flex-start */
   justify-content: center;
   z-index: 1000;
-  animation: fadeIn 0.3s ease;
-  padding: 20px 10px;           /* додаємо відступи зверху/знизу */
+  padding: 15px 10px;             /* Додаємо відступи зверху і знизу */
+  overflow-y: auto;               /* Дозволяємо скролити весь overlay */
   box-sizing: border-box;
 }
 
@@ -21,36 +21,26 @@
   width: 100%;
   max-width: 480px;
   border-radius: 20px;
-  padding: 28px 24px;           /* зменшили padding */
+  padding: 24px 22px 30px;        /* Зменшили верхній і нижній padding */
   position: relative;
-  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
-  animation: slideUp 0.4s ease;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.35);
+  margin: auto 0;                 /* Центруємо вертикально, але з запасом */
+  max-height: 96vh;               /* Не більше 96% висоти екрану */
+  overflow-y: auto;               /* Скрол всередині модалки, якщо треба */
   border: 1px solid #e5e5e5;
-  max-height: 92vh;             /* обмежуємо висоту */
-  overflow-y: auto;             /* додаємо скрол всередині модалки */
-  scrollbar-width: thin;
 }
 
-/* Скролбар для старих браузерів */
-.modal::-webkit-scrollbar {
-  width: 6px;
-}
-.modal::-webkit-scrollbar-thumb {
-  background: #ccc;
-  border-radius: 10px;
-}
-
+/* Кнопка закриття */
 .closeBtn {
   position: absolute;
-  top: 18px;
-  right: 22px;
+  top: 16px;
+  right: 20px;
   background: none;
   border: none;
-  font-size: 32px;
-  color: #666;
+  font-size: 34px;
+  color: #555;
   cursor: pointer;
   z-index: 10;
-  transition: color 0.2s;
   line-height: 1;
 }
 
@@ -60,18 +50,18 @@
 
 /* Заголовки */
 .modal h2 {
-  margin: 0 0 12px 0;
+  margin: 0 0 10px 0;
   color: #1a1a1a;
-  font-size: 24px;
+  font-size: 23px;
   font-weight: 700;
-  padding-right: 40px;   /* щоб не наїжджав на кнопку закриття */
+  padding-right: 45px;           /* щоб не перекривав кнопку закриття */
 }
 
 .modal p {
   margin: 0 0 24px 0;
   color: #555;
   font-size: 15px;
-  line-height: 1.55;
+  line-height: 1.5;
 }
 
 /* Поля форми */
@@ -90,9 +80,8 @@ textarea {
   border: 2px solid #e0e0e0;
   border-radius: 12px;
   color: #1a1a1a;
-  font-size: 16px;
+  font-size: 16px;               /* Важливо для старих Android */
   box-sizing: border-box;
-  transition: all 0.3s ease;
 }
 
 input:focus,
@@ -101,18 +90,12 @@ textarea:focus {
   outline: none;
   border-color: #ff6600;
   background: #ffffff;
-  box-shadow: 0 0 0 3px rgba(255, 102, 0, 0.15);
 }
 
-textarea {
-  min-height: 100px;
-  resize: vertical;
-}
-
-/* Кнопка */
+/* Кнопка відправки */
 .submitBtn {
-  margin-top: 12px;
-  padding: 16px 20px;
+  margin-top: 8px;
+  padding: 17px 20px;
   background: linear-gradient(135deg, #ff6600, #ff8533);
   color: white;
   border: none;
@@ -121,40 +104,28 @@ textarea {
   font-weight: 600;
   cursor: pointer;
   box-shadow: 0 6px 20px rgba(255, 102, 0, 0.3);
-  transition: all 0.3s ease;
 }
 
 .submitBtn:hover:not(:disabled) {
   transform: translateY(-2px);
-  box-shadow: 0 10px 25px rgba(255, 102, 0, 0.4);
 }
 
 .submitBtn:disabled {
   opacity: 0.75;
-  cursor: not-allowed;
 }
 
 /* Повідомлення статусу */
 .success,
 .error {
   margin-top: 12px;
-  padding: 14px 16px;
+  padding: 14px;
   border-radius: 10px;
   text-align: center;
   font-weight: 500;
 }
 
-.success {
-  background: #e8f5e9;
-  color: #2e7d32;
-  border: 1px solid #a5d6a7;
-}
-
-.error {
-  background: #ffebee;
-  color: #c62828;
-  border: 1px solid #ef9a9a;
-}
+.success { background: #e8f5e9; color: #2e7d32; }
+.error   { background: #ffebee; color: #c62828; }
 
 /* Анімації */
 @keyframes fadeIn {
@@ -162,39 +133,31 @@ textarea {
   to { opacity: 1; }
 }
 
-@keyframes slideUp {
-  from {
-    opacity: 0;
-    transform: translateY(40px) scale(0.95);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0) scale(1);
-  }
-}
-
-/* Мобільна адаптивність (дуже важлива для старих телефонів) */
+/* === Найважливіша частина для старих телефонів === */
 @media (max-width: 480px) {
+  .overlay {
+    padding: 10px 8px;
+  }
+  
   .modal {
-    width: 96%;
-    max-width: none;
-    padding: 24px 20px;
+    padding: 22px 18px 28px;
+    max-height: 97vh;
     border-radius: 16px;
-    max-height: 94vh;        /* ще більше місця */
   }
 
   .modal h2 {
-    font-size: 22px;
-  }
-
-  .modal p {
-    font-size: 14.5px;
+    font-size: 21px;
   }
 
   input,
   select,
   textarea {
-    font-size: 16px;         /* запобігає зуму на iOS/Android */
+    font-size: 16px;           /* Запобігає автоматичному зуму */
     padding: 13px 14px;
+  }
+
+  .submitBtn {
+    padding: 16px;
+    font-size: 16.5px;
   }
 }
